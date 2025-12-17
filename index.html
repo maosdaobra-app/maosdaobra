@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#0F172A" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>MÃOS DA OBRA</title>
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Tailwind via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              // Deep Navy Palette
+              primary: {
+                DEFAULT: '#0F172A', // Slate 900
+                light: '#1E293B',   // Slate 800
+                dark: '#020617',    // Slate 950
+              },
+              // Architectural Bronze/Gold
+              secondary: {
+                DEFAULT: '#D97706', // Amber 600
+                light: '#F59E0B',   // Amber 500
+                dark: '#B45309',    // Amber 700
+              },
+              // Status Colors (Muted/Premium)
+              success: {
+                DEFAULT: '#059669', // Emerald 600
+                light: '#D1FAE5',
+                dark: '#064E3B'
+              },
+              warning: {
+                DEFAULT: '#D97706', // Amber 600
+                light: '#FEF3C7',
+                dark: '#78350F'
+              },
+              danger: {
+                DEFAULT: '#DC2626', // Red 600
+                light: '#FEE2E2',
+                dark: '#7F1D1D'
+              },
+              // Luxury Gold/Bronze for Lifetime (Replaces Purple)
+              premium: {
+                DEFAULT: '#B45309', // Amber 700 (Bronze/Gold visual)
+                light: '#F59E0B',   // Amber 500
+                dark: '#78350F'     // Amber 900
+              },
+              surface: '#F8FAFC', // Slate 50
+              text: {
+                main: '#0F172A', // Slate 900
+                body: '#334155', // Slate 700
+                muted: '#64748B', // Slate 500
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Inter', 'sans-serif'],
+            },
+            backgroundImage: {
+              'gradient-premium': 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
+              'gradient-gold': 'linear-gradient(135deg, #F59E0B 0%, #B45309 100%)',
+              'gradient-dark-gold': 'linear-gradient(135deg, #451a03 0%, #78350f 100%)',
+            },
+            boxShadow: {
+              'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+              'glow': '0 0 20px rgba(245, 158, 11, 0.4)',
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background-color: #F8FAFC; 
+        font-family: 'Inter', sans-serif;
+        color: #334155;
+      }
+      .dark body {
+        background-color: #020617;
+        color: #CBD5E1;
+      }
+      /* Custom Scrollbar for Premium Feel */
+      ::-webkit-scrollbar { width: 6px; height: 6px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+      .dark ::-webkit-scrollbar-thumb { background: #334155; }
+      ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
+      /* Glassmorphism Utilities */
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+      }
+      .dark .glass-panel {
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      @media print {
+        @page { margin: 1cm; size: A4 portrait; }
+        body, #root, main, div { overflow: visible !important; height: auto !important; min-height: auto !important; }
+        body, .dark body { background-color: white !important; color: black !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        ::-webkit-scrollbar { display: none; }
+        .grid { display: grid !important; }
+        .flex { display: flex !important; }
+        .dark .text-white { color: #111827 !important; }
+        .dark .bg-slate-900, .dark .bg-surface, .dark .bg-slate-800 { background-color: white !important; border-color: #e5e7eb !important; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.0",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "@supabase/supabase-js": "https://aistudiocdn.com/@supabase/supabase-js@^2.86.0",
+    "@google/genai": "https://esm.run/@google/genai",
+    "xlsx": "https://esm.run/xlsx"
+  }
+}
+</script>
+</head>
+  <body class="bg-surface dark:bg-slate-950 transition-colors duration-300 antialiased selection:bg-secondary selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+           // PWA Service Worker placeholder
+        });
+      }
+    </script>
+  </body>
+</html>
+
